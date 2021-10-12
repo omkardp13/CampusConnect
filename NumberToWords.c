@@ -1,12 +1,15 @@
 /*
-   This Program Accepts UpTo 10 Billion Number
-
+   This Program Accepts UpTo 10 Quadrillion Number
 */
 #include<stdio.h>
 
 void singleDigits(int number)
 {
-	    if(number==1)
+	    if(number==0)
+		{
+			printf("Zero ");
+		}
+	    else if(number==1)
 		{
 			printf("One ");
 			
@@ -45,7 +48,11 @@ void singleDigits(int number)
 }
 void DoubleDigit(int number)
 {
-	if(number==11)
+	if(number==10)
+	{
+		printf("Ten ");
+	}
+	else if(number==11)
 	{
 		printf("Eleven ");
 	}else if(number==12)
@@ -94,7 +101,7 @@ void DoubleDigit(int number)
 		}
 		else if(a==4)
 		{
-			printf("Fourty ");
+			printf("Forty ");
 		}
 		else if(a==5)
 		{
@@ -114,8 +121,9 @@ void DoubleDigit(int number)
 		}
 		else if(a==9)
 		{
-			printf("Ninty ");
+			printf("Ninety ");
 		}
+		if(temp!=0)
 	   singleDigits(temp);	
 	}
 }
@@ -123,8 +131,11 @@ void ThreeDigit(int number)
 {
 	    int temp=number%100;
 		int a=number/100;
+		if(a!=0)
+		{
 		singleDigits(a);
 		printf("Hundred ");
+		}
 		DoubleDigit(temp);
 }
 void FourDigit(int number)
@@ -132,24 +143,33 @@ void FourDigit(int number)
 	
 	    int temp=number%1000;
 		int a=number/1000;
+		if(a!=0)
+		{
 		singleDigits(a);
 		printf("Thousand ");
+		}
 		ThreeDigit(temp);
 }
 void FiveDigit(int number)
 {
 	    int temp=number%1000;
 		int a=number/1000;
+		if(a!=0)
+		{
 		DoubleDigit(a);
 		printf("Thousand ");
+		}
 		ThreeDigit(temp);
 }
 void SixDigit(int number)
 {
 	   int temp=number%1000;
 		int a=number/1000;
+		if(a!=0)
+		{
 		ThreeDigit(a);
 		printf("Thousand ");
+		}
 		ThreeDigit(temp);
 	
 }
@@ -158,18 +178,27 @@ void SevenDigit(int number)
 	    int temp=number%1000;
 		int a=number/1000000;
 		int b=number/1000;
+		if(a!=0)
+		{
 		singleDigits(a);
 		printf("Million ");
+		}
+		if(b!=0)
+		{
 		ThreeDigit(b%1000);
 		printf("Thousand ");
+		}
 		ThreeDigit(temp);
 }
 void EightDigit(int number)
 {
 	    int temp=number%1000000;
 		int a=number/1000000;
+		if(a!=0)
+		{
 		DoubleDigit(a);
 		printf("Million ");
+		}
 		SixDigit(temp);
 	
 }
@@ -177,30 +206,106 @@ void NineDigit(int number)
 {
 	    int temp=number%1000000;
 		int a=number/1000000;
+		if(a!=0)
+		{
 		ThreeDigit(a);
 		printf("Million ");
+		}
 		SixDigit(temp);
 }
-void TenDigit(long long int number)
+void TenDigit(unsigned long long int number)
 {
 	    int temp=number%1000000000;
 		int a=number/1000000000;
+		if(a!=0)
+		{
 		singleDigits(a);
 		printf("Billion ");
+		}
 		NineDigit(temp);
 }
-void ElevenDigit(long long int number)
+void ElevenDigit(unsigned long long int number)
 {
 	    int temp=number%1000000000;
 		int a=(number/1000000000);
+		if(a!=0)
+		{
 		DoubleDigit(a);
-		printf("Billions ");
+		printf("Billion ");
+		}
 		NineDigit(temp);
 }
-void numberToWord(long long int number)
+void TwelveDigit(unsigned long long int number)
+{
+	    unsigned long long int temp=number%1000000000;
+		unsigned long long int a=(number/1000000000);
+		if(a!=0)
+		{
+		ThreeDigit(a);
+		printf("Billion ");
+		}
+		NineDigit(temp);
+}
+void ThirteenDigit(unsigned long long int number)
+{
+        unsigned long long int temp=number%1000000000000;
+		unsigned long long int a=(number/1000000000000);
+		if(a!=0)
+		{
+		singleDigits(a);
+		printf("Trillian ");
+		}
+		TwelveDigit(temp);
+}
+void FourteenDigit(unsigned long long int number)
+{
+    	unsigned long long int temp=number%1000000000000;
+		unsigned long long int a=(number/1000000000000);
+		if(a!=0)
+		{
+		DoubleDigit(a);
+		printf("Trillian ");
+		}
+		TwelveDigit(temp);
+}
+void FifteenDigit(unsigned long long int number)
+{
+	    unsigned long long int temp=number%1000000000000;
+		unsigned long long int a=(number/1000000000000);
+		if(a!=0)
+		{
+		ThreeDigit(a);
+		printf("Hundred Trillian ");
+		}
+		TwelveDigit(temp);
+}
+void SixteenDigit(unsigned long long int number)
+{
+	    unsigned long long int temp=number%1000000000000000;
+		unsigned long long int a=(number/1000000000000000);
+		if(a!=0)
+		{
+		singleDigits(a);
+		printf("Quadrillion ");
+		}
+		FifteenDigit(temp);
+}
+void SeventeenDigit(unsigned long long int number)
+{
+	    unsigned long long int temp=number%1000000000000000;
+		unsigned long long int a=(number/1000000000000000);
+		if(a!=0)
+		{
+		DoubleDigit(a);
+		printf("Quadrillion ");
+		}
+		FifteenDigit(temp);
+	
+}
+void numberToWord(unsigned long long int number)
 {
    	int digitCount=0;
-	long long int temp=number;
+	unsigned long long int temp=number;
 	while(temp!=0)
 	{
 		digitCount++;
@@ -248,15 +353,42 @@ void numberToWord(long long int number)
 		TenDigit(number);
 	}
 	else if(digitCount==11)
-	{
-	   
+	{  
 		ElevenDigit(number);
+	}
+	else if(digitCount==12)
+	{
+		TwelveDigit(number);
+	}
+	else if(digitCount==13)
+	{
+		ThirteenDigit(number);
+	}
+	else if(digitCount==14)
+	{
+		FourteenDigit(number);
+	}
+	else if(digitCount==15)
+	{
+		FifteenDigit(number);
+	}
+	else if(digitCount==16)
+	{
+		SixteenDigit(number);
+	}
+	else if(digitCount==17)
+	{
+		SeventeenDigit(number);
+	}
+	else
+	{
+		printf("Invalid Number");
 	}
 }
 int main()
 {
-	long long int number=0;
-	scanf("%lld",&number);
+	unsigned long long int number=0;
+	scanf("%llu",&number);
 	numberToWord(number);
 	return(0);
 }
